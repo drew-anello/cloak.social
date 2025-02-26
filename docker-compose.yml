@@ -32,8 +32,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     env_file:
-      - ./backend/.env.local
-      - .env.local
+      - ./backend/.env
     ports:
       - "3002:3002"
     depends_on:
