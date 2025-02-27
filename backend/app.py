@@ -2,7 +2,6 @@ import os
 from flask import Flask, jsonify
 from database import SessionLocal
 from Models import User
-from middleware.auth import verify_token
 
 app = Flask(__name__)
 
