@@ -4,7 +4,7 @@ services:
     container_name: mongodb
     restart: always
     env_file:
-      - .env.local
+      - .env
     environment:
       MONGO_INITDB_ROOT_USERNAME: "${MONGOUSER}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGOPASSWORD}"
@@ -32,7 +32,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     env_file:
-      - ./backend/.env
+      - .env
     ports:
       - "3002:3002"
     depends_on:
@@ -54,7 +54,7 @@ services:
     depends_on:
       - postgres
     env_file:
-      - ./auth/.env.local
+      - .env
     restart: always
 
 volumes:
