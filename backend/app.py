@@ -2,6 +2,7 @@ import os
 from flask import Flask, jsonify
 from database import SessionLocal
 from Models import User
+from middleware.auth import verify_token
 
 app = Flask(__name__)
 
@@ -17,3 +18,14 @@ def test_db():
         return jsonify([user.to_dict() for user in users])
     finally:
         db.close()
+
+# Public routes
+@app.route('/public')
+def public_route():
+    return jsonify({"message": "This is public"})
+
+# Protected routes
+@app.route('/protected')
+@verify_token
+def protected_route():
+    return jsonify({"message": "This is protected"})

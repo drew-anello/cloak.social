@@ -45,17 +45,17 @@ services:
       FLASK_RUN_PORT: 3002
       FLASK_DEBUG: 1
 
-  auth:
-    build:
-      context: ./auth
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-    env_file:
-      - .env
-    restart: always
+  # auth:
+  #   build:
+  #     context: ./auth
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - postgres
+  #   env_file:
+  #     - .env
+  #   restart: always
 
 volumes:
   postgres_data:
