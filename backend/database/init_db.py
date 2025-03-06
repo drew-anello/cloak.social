@@ -1,5 +1,9 @@
 from database import engine
 from Models import User, Base
+from flask import Flask
+from . import routes
+app = Flask(__name__)
+
 
 def init_db():
     Base.metadata.create_all(bind=engine)

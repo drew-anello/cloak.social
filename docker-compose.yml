@@ -41,7 +41,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      FLASK_APP: app.py
+      FLASK_APP: main.py
       FLASK_RUN_PORT: 3002
       FLASK_DEBUG: 1
 
