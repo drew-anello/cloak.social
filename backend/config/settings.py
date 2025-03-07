@@ -16,6 +16,7 @@ class Config:
     JWT_SECRET = os.getenv('JWT_SECRET')
     JWT_EXPIRY = os.getenv('JWT_EXPIRY')
     FLASKAPIURL = os.getenv('FLASKAPIURL')
+    SECRET_KEY = os.getenv('SECRET_KEY')
 
     def __init__(self):
         print(f"AUTH0_CLIENT_ID: {self.AUTH0_CLIENT_ID}")

@@ -8,7 +8,14 @@ from routes.auth import auth_bp
 from routes.register import register_bp
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key')
+app.secret_key = os.environ.get('SECRET_KEY')
+
+# Configure session
+app.config.update(
+    SESSION_COOKIE_SECURE=True,  # For HTTPS
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+)
 
 # Initialize Auth0 service
 auth0_service = Auth0Service(app)
@@ -25,4 +32,9 @@ def hello():
     return jsonify({"message": "Hello, World!"})    
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3002, debug=True)
+    app.run(
+        host='0.0.0.0', 
+        port=3002, 
+        debug=True,
+        ssl_context=('cert.pem', 'key.pem')
+    )

@@ -1,2 +1,4 @@
 .env.local
 .env*
+cert.pem
+key.pem

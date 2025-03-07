@@ -13,9 +13,11 @@ class Auth0Service:
             api_base_url=f"https://{settings.AUTH0_DOMAIN}",
             access_token_url=f"https://{settings.AUTH0_DOMAIN}/oauth/token",
             authorize_url=f"https://{settings.AUTH0_DOMAIN}/authorize",
+            server_metadata_url=f'https://{settings.AUTH0_DOMAIN}/.well-known/openid-configuration',
             client_kwargs={
-                'audience': settings.AUTH0_AUDIENCE,
-                'scope': 'openid profile email read:current_user update:current_user delete:current_user'
+                'scope': 'openid profile email',
+                'response_type': 'code',
+                'token_endpoint_auth_method': 'client_secret_post'
             }
         )
 

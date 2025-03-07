@@ -1,3 +1,5 @@
 .env.local
 .env*
 __pycache__
+cert.pem
+key.pem
