@@ -1,3 +1,3 @@
-from .auth0 import auth0, requires_auth
+from .auth0 import Auth0Service
 
-__all__ = ['auth0', 'requires_auth'] 
+__all__ = ['Auth0Service'] 
