@@ -1,7 +1,9 @@
 from database import engine
 from Models import User, Base
+from routes import *
+from services import *
+
 from flask import Flask
-from . import routes
 app = Flask(__name__)
 
 
